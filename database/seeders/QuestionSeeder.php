@@ -153,7 +153,7 @@ class QuestionSeeder extends Seeder
             'id' => 16,
             'title' => 'CUÁL ES EL SALARIO MÍNIMO LEGAL VIGENTE EN COLOMBIA AÑO 2021?',
             'answer' => '16_d',
-            'choices' => '{ "a": "875308", "b": "1007321", "c": "682971", "d": "908526"}',
+            'choices' => '{ "a": "$875.308", "b": "$1.007.321", "c": "$682.971", "d": "$908.526"}',
             'created_at' => now(),
             'updated_at' => now()
         ]);

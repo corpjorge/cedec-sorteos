@@ -15,15 +15,15 @@ class SlotsController extends Controller
 {
     public function slots()
     {
-        if (auth()->user()->locked){
-            auth()->logout();
-            return redirect('/locked');
-        }
-
-        if (!auth()->user()->go){
-            auth()->logout();
-            return redirect('/');
-        }
+//        if (auth()->user()->locked){
+//            auth()->logout();
+//            return redirect('/locked');
+//        }
+//
+//        if (!auth()->user()->go){
+//            auth()->logout();
+//            return redirect('/');
+//        }
 
         auth()->user()->update([ 'go' => null ]);
 
@@ -32,6 +32,12 @@ class SlotsController extends Controller
         if ($exists){
             return view('final');
         }
+
+        $dayFinish = Participant::where('user_id', auth()->user()->id)->whereDate('created_at', date('Y-m-d'))->count();
+
+        if($dayFinish == 10){
+            return  view('dayFinish');
+        };
 
         $date = \Carbon\Carbon::now();
         $gift = Gift::where('exception',1)->whereDate('date', $date->format('Y-m-d'))->first();

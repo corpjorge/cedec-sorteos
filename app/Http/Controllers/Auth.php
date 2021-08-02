@@ -38,14 +38,7 @@ class Auth extends Controller
 
     public function temp(Request $request)
     {
-        if (auth()->user()->id === 1){
-            $participants = Participant::orderBy('id', 'desc')->limit(1000)->get()->load('user');
-
-             foreach ($participants as $participant){
-                 echo 'id:'.$participant->id.' / turn:'.$participant->turn.' win: '.$participant->winner.' / fecha: '.$participant->created_at;
-                 echo '<br>';
-             }
-        }
+         return view('temp', [ 'questions' => Question::all()]);
     }
 
 

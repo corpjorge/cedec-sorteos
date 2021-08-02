@@ -2,13 +2,13 @@
 
     DB::table('questions')->insert([
 <br>
-        'id' => {{ $gift->id }},
+        'id' => {{ $question->id }},
 <br>
-        'name' => '{{ $gift->nombre }}',
+        'title' => '{{ $question->title }}',
 <br>
-        'date' => '{{ $gift->date }}',
+        'answer' => '{{ $question->answer }}',
 <br>
-        'exception' => '{{ $gift->exception }}',
+        'choices' => '{{ $question->choices }}',
 <br>
         'created_at' => now(),
 <br>

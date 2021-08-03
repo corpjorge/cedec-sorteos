@@ -15,15 +15,15 @@ class SlotsController extends Controller
 {
     public function slots()
     {
-//        if (auth()->user()->locked){
-//            auth()->logout();
-//            return redirect('/locked');
-//        }
-//
-//        if (!auth()->user()->go){
-//            auth()->logout();
-//            return redirect('/');
-//        }
+        if (auth()->user()->locked){
+            auth()->logout();
+            return redirect('/locked');
+        }
+
+        if (!auth()->user()->go){
+            auth()->logout();
+            return redirect('/');
+        }
 
         auth()->user()->update([ 'go' => null ]);
 

@@ -30,12 +30,14 @@ class SlotsController extends Controller
         $exists = Winner::where('user_id', auth()->user()->id)->exists();
 
         if ($exists){
+            auth()->logout();
             return view('final');
         }
 
         $dayFinish = Participant::where('user_id', auth()->user()->id)->whereDate('created_at', date('Y-m-d'))->count();
 
         if($dayFinish == 10){
+            auth()->logout();
             return  view('dayFinish');
         };
 
